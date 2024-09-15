@@ -87,7 +87,7 @@ Accept wildcard characters: False
 ```
 
 ### -ClusterName
-The name of the RedisEnterprise cluster.
+The name of the Redis Enterprise cluster.
 
 ```yaml
 Type: System.String
@@ -345,7 +345,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## OUTPUTS
 
-### Microsoft.Azure.PowerShell.Cmdlets.RedisEnterpriseCache.Models.Api20230301Preview.ICluster
+### Microsoft.Azure.PowerShell.Cmdlets.RedisEnterpriseCache.Models.Api20240601Preview.ICluster
 
 ## NOTES
 

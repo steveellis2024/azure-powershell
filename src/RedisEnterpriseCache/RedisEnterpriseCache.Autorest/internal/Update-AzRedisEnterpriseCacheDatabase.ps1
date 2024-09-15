@@ -27,7 +27,7 @@ Update-AzRedisEnterpriseCacheDatabase -Name "MyCache" -ResourceGroupName "MyGrou
 .Inputs
 Microsoft.Azure.PowerShell.Cmdlets.RedisEnterpriseCache.Models.IRedisEnterpriseCacheIdentity
 .Outputs
-Microsoft.Azure.PowerShell.Cmdlets.RedisEnterpriseCache.Models.Api20230301Preview.IDatabase
+Microsoft.Azure.PowerShell.Cmdlets.RedisEnterpriseCache.Models.Api20240601Preview.IDatabase
 .Notes
 COMPLEX PARAMETER PROPERTIES
 
@@ -37,8 +37,8 @@ GEOREPLICATIONLINKEDDATABASE <ILinkedDatabase[]>: List of database resources to 
   [Id <String>]: Resource ID of a database resource to link with this database.
 
 INPUTOBJECT <IRedisEnterpriseCacheIdentity>: Identity Parameter
-  [ClusterName <String>]: The name of the RedisEnterprise cluster.
-  [DatabaseName <String>]: The name of the database.
+  [ClusterName <String>]: The name of the Redis Enterprise cluster.
+  [DatabaseName <String>]: The name of the Redis Enterprise database.
   [Id <String>]: Resource identity path
   [Location <String>]: The name of Azure region.
   [OperationId <String>]: The ID of an ongoing async operation.
@@ -53,20 +53,20 @@ MODULE <IModule[]>: Optional set of redis modules to enable in this database - m
 https://learn.microsoft.com/powershell/module/az.redisenterprisecache/update-azredisenterprisecachedatabase
 #>
 function Update-AzRedisEnterpriseCacheDatabase {
-[OutputType([Microsoft.Azure.PowerShell.Cmdlets.RedisEnterpriseCache.Models.Api20230301Preview.IDatabase])]
+[OutputType([Microsoft.Azure.PowerShell.Cmdlets.RedisEnterpriseCache.Models.Api20240601Preview.IDatabase])]
 [CmdletBinding(DefaultParameterSetName='UpdateExpanded', PositionalBinding=$false, SupportsShouldProcess, ConfirmImpact='Medium')]
 param(
     [Parameter(ParameterSetName='UpdateExpanded', Mandatory)]
     [Microsoft.Azure.PowerShell.Cmdlets.RedisEnterpriseCache.Category('Path')]
     [System.String]
-    # The name of the RedisEnterprise cluster.
+    # The name of the Redis Enterprise cluster.
     ${ClusterName},
 
     [Parameter(ParameterSetName='UpdateExpanded', Mandatory)]
     [Alias('DatabaseName')]
     [Microsoft.Azure.PowerShell.Cmdlets.RedisEnterpriseCache.Category('Path')]
     [System.String]
-    # The name of the database.
+    # The name of the Redis Enterprise database.
     ${Name},
 
     [Parameter(ParameterSetName='UpdateExpanded', Mandatory)]
@@ -120,6 +120,14 @@ param(
     ${ClusteringPolicy},
 
     [Parameter()]
+    [ArgumentCompleter([Microsoft.Azure.PowerShell.Cmdlets.RedisEnterpriseCache.Support.DeferUpgradeSetting])]
+    [Microsoft.Azure.PowerShell.Cmdlets.RedisEnterpriseCache.Category('Body')]
+    [Microsoft.Azure.PowerShell.Cmdlets.RedisEnterpriseCache.Support.DeferUpgradeSetting]
+    # Option to defer upgrade when newest version is released - default is NotDeferred.
+    # Learn more: https://aka.ms/redisversionupgrade
+    ${DeferUpgrade},
+
+    [Parameter()]
     [ArgumentCompleter([Microsoft.Azure.PowerShell.Cmdlets.RedisEnterpriseCache.Support.EvictionPolicy])]
     [Microsoft.Azure.PowerShell.Cmdlets.RedisEnterpriseCache.Category('Body')]
     [Microsoft.Azure.PowerShell.Cmdlets.RedisEnterpriseCache.Support.EvictionPolicy]
@@ -135,7 +143,7 @@ param(
     [Parameter()]
     [AllowEmptyCollection()]
     [Microsoft.Azure.PowerShell.Cmdlets.RedisEnterpriseCache.Category('Body')]
-    [Microsoft.Azure.PowerShell.Cmdlets.RedisEnterpriseCache.Models.Api20230301Preview.ILinkedDatabase[]]
+    [Microsoft.Azure.PowerShell.Cmdlets.RedisEnterpriseCache.Models.Api20240601Preview.ILinkedDatabase[]]
     # List of database resources to link with this database
     # To construct, see NOTES section for GEOREPLICATIONLINKEDDATABASE properties and create a hash table.
     ${GeoReplicationLinkedDatabase},
@@ -143,7 +151,7 @@ param(
     [Parameter()]
     [AllowEmptyCollection()]
     [Microsoft.Azure.PowerShell.Cmdlets.RedisEnterpriseCache.Category('Body')]
-    [Microsoft.Azure.PowerShell.Cmdlets.RedisEnterpriseCache.Models.Api20230301Preview.IModule[]]
+    [Microsoft.Azure.PowerShell.Cmdlets.RedisEnterpriseCache.Models.Api20240601Preview.IModule[]]
     # Optional set of redis modules to enable in this database - modules can only be added at creation time.
     # To construct, see NOTES section for MODULE properties and create a hash table.
     ${Module},

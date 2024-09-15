@@ -6,7 +6,9 @@
 namespace Microsoft.Azure.PowerShell.Cmdlets.RedisEnterpriseCache.Support
 {
 
-    /// <summary>Argument completer implementation for SkuName.</summary>
+    /// <summary>
+    /// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
+    /// </summary>
     [System.ComponentModel.TypeConverter(typeof(Microsoft.Azure.PowerShell.Cmdlets.RedisEnterpriseCache.Support.SkuNameTypeConverter))]
     public partial struct SkuName :
         System.Management.Automation.IArgumentCompleter
@@ -26,6 +28,14 @@ namespace Microsoft.Azure.PowerShell.Cmdlets.RedisEnterpriseCache.Support
         /// </returns>
         public global::System.Collections.Generic.IEnumerable<global::System.Management.Automation.CompletionResult> CompleteArgument(global::System.String commandName, global::System.String parameterName, global::System.String wordToComplete, global::System.Management.Automation.Language.CommandAst commandAst, global::System.Collections.IDictionary fakeBoundParameters)
         {
+            if (global::System.String.IsNullOrEmpty(wordToComplete) || "Enterprise_E1".StartsWith(wordToComplete, global::System.StringComparison.InvariantCultureIgnoreCase))
+            {
+                yield return new global::System.Management.Automation.CompletionResult("'Enterprise_E1'", "Enterprise_E1", global::System.Management.Automation.CompletionResultType.ParameterValue, "Enterprise_E1");
+            }
+            if (global::System.String.IsNullOrEmpty(wordToComplete) || "Enterprise_E5".StartsWith(wordToComplete, global::System.StringComparison.InvariantCultureIgnoreCase))
+            {
+                yield return new global::System.Management.Automation.CompletionResult("'Enterprise_E5'", "Enterprise_E5", global::System.Management.Automation.CompletionResultType.ParameterValue, "Enterprise_E5");
+            }
             if (global::System.String.IsNullOrEmpty(wordToComplete) || "Enterprise_E10".StartsWith(wordToComplete, global::System.StringComparison.InvariantCultureIgnoreCase))
             {
                 yield return new global::System.Management.Automation.CompletionResult("'Enterprise_E10'", "Enterprise_E10", global::System.Management.Automation.CompletionResultType.ParameterValue, "Enterprise_E10");

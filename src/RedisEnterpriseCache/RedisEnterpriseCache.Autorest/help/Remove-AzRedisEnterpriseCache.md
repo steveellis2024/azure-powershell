@@ -66,7 +66,7 @@ Accept wildcard characters: False
 ```
 
 ### -ClusterName
-The name of the RedisEnterprise cluster.
+The name of the Redis Enterprise cluster.
 
 ```yaml
 Type: System.String

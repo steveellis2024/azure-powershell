@@ -23,7 +23,7 @@ Forcibly removes the link to the specified database resource.
 Invoke-AzRedisEnterpriseCacheForceDatabaseUnlink -ResourceGroupName "MyGroup" -ClusterName "MyCache3" -Id @("databaseId")
 
 .Inputs
-Microsoft.Azure.PowerShell.Cmdlets.RedisEnterpriseCache.Models.Api20230301Preview.IForceUnlinkParameters
+Microsoft.Azure.PowerShell.Cmdlets.RedisEnterpriseCache.Models.Api20240601Preview.IForceUnlinkParameters
 .Inputs
 Microsoft.Azure.PowerShell.Cmdlets.RedisEnterpriseCache.Models.IRedisEnterpriseCacheIdentity
 .Outputs
@@ -34,8 +34,8 @@ COMPLEX PARAMETER PROPERTIES
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
 INPUTOBJECT <IRedisEnterpriseCacheIdentity>: Identity Parameter
-  [ClusterName <String>]: The name of the RedisEnterprise cluster.
-  [DatabaseName <String>]: The name of the database.
+  [ClusterName <String>]: The name of the Redis Enterprise cluster.
+  [DatabaseName <String>]: The name of the Redis Enterprise database.
   [Id <String>]: Resource identity path
   [Location <String>]: The name of Azure region.
   [OperationId <String>]: The ID of an ongoing async operation.
@@ -56,7 +56,7 @@ param(
     [Parameter(ParameterSetName='ForceExpanded', Mandatory)]
     [Microsoft.Azure.PowerShell.Cmdlets.RedisEnterpriseCache.Category('Path')]
     [System.String]
-    # The name of the RedisEnterprise cluster.
+    # The name of the Redis Enterprise cluster.
     ${ClusterName},
 
     [Parameter(ParameterSetName='Force', Mandatory)]
@@ -86,7 +86,7 @@ param(
     [Parameter(ParameterSetName='Force', Mandatory, ValueFromPipeline)]
     [Parameter(ParameterSetName='ForceViaIdentity', Mandatory, ValueFromPipeline)]
     [Microsoft.Azure.PowerShell.Cmdlets.RedisEnterpriseCache.Category('Body')]
-    [Microsoft.Azure.PowerShell.Cmdlets.RedisEnterpriseCache.Models.Api20230301Preview.IForceUnlinkParameters]
+    [Microsoft.Azure.PowerShell.Cmdlets.RedisEnterpriseCache.Models.Api20240601Preview.IForceUnlinkParameters]
     # Parameters for a Redis Enterprise Active Geo Replication Force Unlink operation.
     # To construct, see NOTES section for PARAMETER properties and create a hash table.
     ${Parameter},
