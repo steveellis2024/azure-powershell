@@ -208,7 +208,7 @@ $ErrorActionPreference = "Stop"
 ########################################################################################################################
 # To encrypt all the VMs in the given resource group of the logged in subscription uncomment below section
 ########################################################################################################################
-#$allVMs = Get-AzVm -ResourceGroupName $resourceGroupName;
+$allVMs = Get-AzVm -ResourceGroupName $resourceGroupName;
 
 ########################################################################################################################
 # To encrypt all the VMs in the all the resource groups of the logged in subscription, uncomment below section
